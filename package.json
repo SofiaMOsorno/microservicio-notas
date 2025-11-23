@@ -9,10 +9,17 @@
         "build": "tsc",
         "start": "node dist/index.js"
     },
-    "keywords": ["microservicio", "notas", "venta", "pdf", "s3"],
+    "keywords": [
+        "microservicio",
+        "notas",
+        "venta",
+        "pdf",
+        "s3"
+    ],
     "author": "",
     "license": "ISC",
     "dependencies": {
+        "@aws-sdk/client-cloudwatch": "^3.936.0",
         "@aws-sdk/client-dynamodb": "^3.908.0",
         "@aws-sdk/client-s3": "^3.908.0",
         "@aws-sdk/credential-provider-ini": "^3.908.0",

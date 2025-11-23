@@ -1,0 +1,31 @@
+name: Build Docker Image
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    
+    steps:
+    - uses: actions/checkout@v3
+    
+    - name: Setup Node.js
+      uses: actions/setup-node@v3
+      with:
+        node-version: '20'
+    
+    - name: Install dependencies
+      run: npm ci
+    
+    - name: Build TypeScript
+      run: npm run build
+    
+    - name: Build Docker image
+      run: docker build -t microservicio-notas:${{ github.sha }} .
+    
+    - name: Test Docker image
+      run: docker run -d -p 3002:3002 microservicio-notas:${{ github.sha }}
