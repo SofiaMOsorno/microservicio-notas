@@ -19,7 +19,7 @@ export const docClient = DynamoDBDocumentClient.from(dynamoClient);
 export const s3Client = new S3Client(awsConfig);
 
 export const config = {
-    s3BucketName: process.env.S3_BUCKET_NAME || '746241-esi3898k-examen1',
+    s3BucketName: process.env.S3_BUCKET_NAME || '746241-esi3898k-examen2',
     notasVentaTable: process.env.NOTAS_VENTA_TABLE || 'NotasVenta',
     contenidoNotaTable: process.env.CONTENIDO_NOTA_TABLE || 'ContenidoNota',
     metadatosNotasTable: process.env.METADATOS_NOTAS_TABLE || 'MetadatosNotas',
