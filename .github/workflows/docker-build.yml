@@ -25,7 +25,7 @@ jobs:
       run: npm run build
 
     - name: Upload build artifacts
-      uses: actions/upload-artifact@v3
+      uses: actions/upload-artifact@v4
       with:
         name: dist
         path: dist/
@@ -40,7 +40,7 @@ jobs:
       uses: actions/checkout@v3
     
     - name: Download build artifacts
-      uses: actions/download-artifact@v3
+      uses: actions/download-artifact@v4
       with:
         name: dist
         path: dist/
@@ -60,7 +60,7 @@ jobs:
       run: docker build -t microservicio-notas:${{ github.sha }} .
     
     - name: Tag Docker image
-      run: docker tag microservicio-notas:${{ github.sha }} ${{ secrets.ECR_REGISTRY }}/microservicio-notas:latest
+      run: docker tag microservicio-notas:${{ github.sha }} ${{ secrets.ECR_REGISTRY }}/microservicio-catalogos:latest
     
     - name: Push to ECR
       run: docker push ${{ secrets.ECR_REGISTRY }}/microservicio-notas:latest
