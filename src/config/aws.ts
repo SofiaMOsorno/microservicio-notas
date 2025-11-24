@@ -1,16 +1,12 @@
 import { DynamoDBClient } from '@aws-sdk/client-dynamodb';
 import { DynamoDBDocumentClient } from '@aws-sdk/lib-dynamodb';
 import { S3Client } from '@aws-sdk/client-s3';
-import { fromIni } from '@aws-sdk/credential-provider-ini';
 import * as dotenv from 'dotenv';
 
 dotenv.config();
 
 const awsConfig = {
-    region: process.env.AWS_REGION || 'us-east-1',
-    credentials: process.env.AWS_PROFILE 
-        ? fromIni({ profile: process.env.AWS_PROFILE })
-        : fromIni({ profile: 'default' })
+    region: process.env.AWS_REGION || 'us-east-1'
 };
 
 const dynamoClient = new DynamoDBClient(awsConfig);
